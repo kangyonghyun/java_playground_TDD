@@ -1,8 +1,10 @@
-package baseball;
+package baseball.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class NumberGenerator {
 
@@ -17,5 +19,14 @@ public class NumberGenerator {
         }
         return numbers;
     }
+
+    public List<Integer> toIntegerList(String string) {
+        List<Integer> list = Arrays.stream(string.split(""))
+                .map(str -> Integer.valueOf(str))
+                .collect(Collectors.toList());
+        return list;
+    }
+
+
 
 }

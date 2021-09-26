@@ -1,6 +1,6 @@
-package baseball;
+package baseball.domain;
 
-import org.assertj.core.api.Assertions;
+import baseball.domain.BallNumber;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
