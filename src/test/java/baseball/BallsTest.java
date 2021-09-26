@@ -83,8 +83,7 @@ public class BallsTest {
     void play_3strike() {
         Balls com = new Balls(Arrays.asList(1, 2, 3));
         PlayResult result = com.play(Arrays.asList(1, 2, 3));
-        assertThat(result.getStrike()).isEqualTo(3);
-        assertThat(result.getBall()).isEqualTo(0);
+        assertThat(result.isGameEnd()).isTrue();
     }
 
 }

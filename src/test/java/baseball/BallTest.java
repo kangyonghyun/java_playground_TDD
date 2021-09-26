@@ -11,6 +11,7 @@ public class BallTest {
        1, 4  / 1, 1 -> strike
        1, 4  / 2, 4 -> ball
      */
+
     private Ball com;
 
     @BeforeEach

@@ -3,7 +3,7 @@ package baseball;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Balls {
+public class Balls implements Playable {
 
     private List<Ball> answers;
 
