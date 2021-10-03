@@ -10,7 +10,7 @@ public class PositionTest {
     @Test
     void 정상_position() {
         Position position = new Position(1);
-        assertThat(position.getPosition()).isEqualTo(1);
+        assertThat(position).isEqualTo(new Position(1));
     }
 
     @Test
@@ -22,8 +22,8 @@ public class PositionTest {
     @Test
     void move() {
         Position position = new Position();
-        position.move();
-        assertThat(position.getPosition()).isEqualTo(1);
+        Position move = position.move();
+        assertThat(move).isEqualTo(new Position(1));
     }
 
     @Test

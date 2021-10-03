@@ -17,16 +17,16 @@ public class Position {
         this.position = num;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
-    public void move() {
-        this.position++;
+    public Position move() {
+        return new Position(position + 1);
     }
 
     public boolean lessThan(Position maxPosition) {
-        return position < maxPosition.getPosition();
+        return maxPosition.moreThan(position);
+    }
+
+    private boolean moreThan(int position) {
+        return this.position > position;
     }
 
     @Override
@@ -34,11 +34,18 @@ public class Position {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Position position1 = (Position) o;
-        return getPosition() == position1.getPosition();
+        return position == position1.position;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getPosition());
+        return Objects.hash(position);
+    }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "position=" + position +
+                '}';
     }
 }

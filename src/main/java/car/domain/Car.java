@@ -1,8 +1,10 @@
 package car.domain;
 
+import java.util.Objects;
+
 public class Car {
 
-    private String name;
+    private CarName name;
     private Position position;
 
     public Car(String name) {
@@ -10,26 +12,19 @@ public class Car {
     }
 
     public Car(String name, int position) {
-        this.name = name;
+        this.name = new CarName(name);
         this.position = new Position(position);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getPosition() {
-        return position.getPosition();
-    }
-
-    public void move(MovingStrategy movingStrategy) {
+    public Position move(MovingStrategy movingStrategy) {
         if (movingStrategy.movable()) {
-            position.move();
+            return this.position = position.move();
         }
+        return position;
     }
 
     public boolean isWinner(Position maxPosition) {
-        return this.position.equals(maxPosition);
+        return position.equals(maxPosition);
     }
 
     public Position getMaxPosition(Position maxPosition) {
@@ -39,22 +34,35 @@ public class Car {
         return position;
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "name='" + name + '\'' +
-                ", position=" + position.getPosition() +
-                '}';
-    }
-
     // 랜덤값 테스트용
     private static final int FORWARD_NUM = 4;
     private static final int MAX_BOUND = 10;
 
-    public void move(int num) {
+    public Position move(int num) {
         if (num >= FORWARD_NUM) {
-            position.move();
+            return this.position = position.move();
         }
+        return position;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(name, car.name) && Objects.equals(position, car.position);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, position);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name=" + name +
+                ", position=" + position +
+                '}';
+    }
 }

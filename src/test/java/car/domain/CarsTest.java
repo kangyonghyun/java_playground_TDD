@@ -19,11 +19,11 @@ public class CarsTest {
 
     @Test
     void findWinners() {
-        Car sonata = new Car("sonata", 2);
+        Car k3 = new Car("k3", 2);
         Car k5 = new Car("k5", 2);
         Car k9 = new Car("k9", 3);
 
-        List<Car> original = Arrays.asList(sonata, k5, k9);
+        List<Car> original = Arrays.asList(k3, k5, k9);
         Cars cars = new Cars(original);
         List<Car> winners = cars.findWinners();
 

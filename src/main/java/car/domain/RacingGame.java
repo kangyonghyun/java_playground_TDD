@@ -44,11 +44,4 @@ public class RacingGame {
         return tryNo == 0;
     }
 
-    public int getTryNo() {
-        return tryNo;
-    }
-
-    public void minusTry() {
-        tryNo--;
-    }
 }
